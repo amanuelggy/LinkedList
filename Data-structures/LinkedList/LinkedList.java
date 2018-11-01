@@ -20,10 +20,11 @@ public class LinkedList {
             current = newNode;
             return;
         }
-        // if (current.data == value) { // needs a fix
-        // newNode.next = current;
-        // current.next = newNode;
-        // }
+        if (current.data == value) { // needs a fix
+            newNode.next = current.next;
+            current = newNode;
+            return;
+        }
         while (current.next != null) {
             if (current.next.data == value) {
                 newNode.next = current.next.next;
@@ -83,6 +84,21 @@ public class LinkedList {
         }
     }
 
+    // Reverse the LinkedList
+    public void reverse() {
+        Node current = this.head;
+        Node prev = null;
+        Node newNext = null;
+        System.out.println("1");
+        while (current != null) {
+            newNext = current.next;
+            current.next = prev;
+            prev = current;
+            current = newNext;
+        }
+        return;
+    }
+
     @Override
     public String toString() {
         String result = "{ ";
@@ -97,29 +113,35 @@ public class LinkedList {
 
     public static void main(String args[]) {
         LinkedList list = new LinkedList();
-        list.addAtStart(5);
-        list.addAtStart(4);
-        list.addAtStart(9);
-        list.addAtStart(11);
-        list.addAtStart(7);
+        list.head = new Node(1);
+        list.head.next = new Node(2);
+        list.head.next.next = new Node(3);
+        list.head.next.next.next = new Node(4);
 
-        list.addAtAnyPoss(4, 22);
-        list.addAtAnyPoss(7, 44);
-        list.addAtAnyPoss(5, 19);
+        // list.addAtStart(5);
+        // list.addAtStart(4);
+        // list.addAtStart(9);
+        // list.addAtStart(11);
+        // list.addAtStart(7);
 
-        list.addAtEnd(13);
-        list.addAtEnd(15);
-        list.addAtEnd(12);
-        list.addAtEnd(14);
+        // list.addAtAnyPoss(4, 22);
+        // list.addAtAnyPoss(7, 44);
+        // list.addAtAnyPoss(5, 19);
 
-        list.deleteAtStart();
+        // list.addAtEnd(13);
+        // list.addAtEnd(15);
+        // list.addAtEnd(12);
+        // list.addAtEnd(14);
 
-        list.deleteWithValue(44);
-        list.deleteWithValue(12);
-        list.deleteWithValue(14);
-        list.deleteWithValue(7);
+        // list.deleteAtStart();
 
-        list.deleteAtEnd();
+        // list.deleteWithValue(44);
+        // list.deleteWithValue(12);
+        // list.deleteWithValue(14);
+        // list.deleteWithValue(7);
+
+        // list.deleteAtEnd();
+        list.reverse();
         System.out.println(list);
 
     }
