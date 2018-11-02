@@ -58,13 +58,33 @@ public class Algos {
         arr[j] = temp;
     }
 
+    // pythagorean Triplet ( Given an array of integers, write a function that
+    // returns true if there is a triplet (a, b, c) that satisfies a^2 + b^2 = c^2)
+    public boolean triplet(int[] arr, int sum) {
+        for (int i = 0; i < arr.length - 2; ++i) {
+            for (int j = i + 1; j < arr.length - 1; ++j) {
+                for (int k = j + 1; k < arr.length; ++k) {
+                    if (arr[i] + arr[j] + arr[k] == sum) {
+                        System.out.println(" The Triplate are: " + arr[i] + ", " + arr[j] + ", " + arr[k]);
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         Algos algo = new Algos();
         int[] arr = { 6, 5, 4, 3, 2, 1, 0 };
         // int[] arr2 = { 0, 1, 2, 3, 4, 5, 6, 7 };
+        int[] arr3 = { 3, 2, 4, 6, 5, 7, 9, 22 };
+        int[] arr4 = { 1, 4, 45, 6, 10, 8 };
+        int sum = 22;
         algo.largestKints(arr, 4);
         algo.smallestKints(arr, 3);
         // algo.bubleSortDecrement(arr2);
+        algo.triplet(arr4, sum);
 
     }
 }
