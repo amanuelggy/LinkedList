@@ -1,0 +1,6 @@
+Why use Trees?
+    - You can search, and insert / delete items quickly in a Tree
+    - Ordered Arrays are bad at Insetions / Deletions
+    - Finding items in a Linked List is slow
+    - Time needed to preform an operation on a tree is O(log N)
+    - On average a tree is more efficient if you need to preform many different types of operations
