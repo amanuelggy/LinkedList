@@ -59,7 +59,8 @@ public class Algos {
     }
 
     // pythagorean Triplet ( Given an array of integers, write a function that
-    // returns true if there is a triplet (a, b, c) that satisfies a^2 + b^2 = c^2)
+    // returns true if there is a triplet (a, b, c) that satisfies a^2 + b^2 + c^2 =
+    // sum^2)
     public boolean triplet(int[] arr, int sum) {
         for (int i = 0; i < arr.length - 2; ++i) {
             for (int j = i + 1; j < arr.length - 1; ++j) {
@@ -74,17 +75,65 @@ public class Algos {
         return false;
     }
 
+    // Reverse String
+    public void reverseString(StringBuffer str) {
+        StringBuffer result = new StringBuffer();
+        for (int i = str.length() - 1; i >= 0; --i) {
+            result.append(str.charAt(i));
+        }
+        System.out.println(result);
+    }
+
+    // Palindrome
+    public boolean palindrome(StringBuilder str) {
+        StringBuffer result = new StringBuffer();
+        for (int i = str.length() - 1; i >= 0; --i) {
+            result.append(str.charAt(i));
+        }
+        boolean val = str.toString().equals(result.toString());
+        System.out.println(val);
+        System.out.println("result: " + result + " str: " + str);
+        return val;
+    }
+
+    // Max character: print the character that is used the morst
+    public void maxChar(StringBuilder str) {
+        int count = 0;
+        int index = 0;
+        int num = 0;
+        char maxChar = ' ';
+        for (int i = 0; i < str.length(); ++i) {
+            for (int j = i; j < str.length() - 1; ++j) {
+                if (str.charAt(i) == str.charAt(j)) {
+                    count++;
+                }
+            }
+            if (count > num) {
+                index = i;
+                maxChar = str.charAt(i);
+                num = count;
+                count = 0;
+            }
+        }
+        System.out.println("The character the most used in " + str + " is " + maxChar);
+    }
+
     public static void main(String[] args) {
         Algos algo = new Algos();
-        int[] arr = { 6, 5, 4, 3, 2, 1, 0 };
+        // int[] arr = { 6, 5, 4, 3, 2, 1, 0 };
         // int[] arr2 = { 0, 1, 2, 3, 4, 5, 6, 7 };
-        int[] arr3 = { 3, 2, 4, 6, 5, 7, 9, 22 };
-        int[] arr4 = { 1, 4, 45, 6, 10, 8 };
-        int sum = 22;
-        algo.largestKints(arr, 4);
-        algo.smallestKints(arr, 3);
+        // int[] arr3 = { 3, 2, 4, 6, 5, 7, 9, 22 };
+        // int[] arr4 = { 1, 4, 45, 6, 10, 8 };
+        // int sum = 22;
+        // algo.largestKints(arr, 4);
+        // algo.smallestKints(arr, 3);
         // algo.bubleSortDecrement(arr2);
-        algo.triplet(arr4, sum);
+        // algo.triplet(arr4, sum);
+        StringBuffer str = new StringBuffer("Smile");
+        StringBuilder builder = new StringBuilder("ololo");
+        algo.reverseString(str);
+        algo.palindrome(builder);
+        algo.maxChar(builder);
 
     }
 }
