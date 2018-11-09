@@ -3,21 +3,21 @@ public class BinaryTreeRecursive {
     public Node root;
 
     // converting outputs to string
-    public String toString() {
-        Node current = root;
-        String result = "{";
-        while (current != null) {
-            result += current.toString() + ", ";
-            if (current.left != null) {
-                current = current.left;
-            }
-            if (current.right != null) {
-                current = current.right;
-            }
-        }
-        result += " }";
-        return result;
-    }
+    // public String toString() {
+    // Node current = root;
+    // String result = "{";
+    // while (current != null) {
+    // result += current.toString() + ", ";
+    // if (current.left != null) {
+    // current = current.left;
+    // }
+    // if (current.right != null) {
+    // current = current.right;
+    // }
+    // }
+    // result += " }";
+    // return result;
+    // }
 
     // inserting to tree using recursive
     public Node append(int data) {
@@ -26,23 +26,27 @@ public class BinaryTreeRecursive {
             root = newroot;
             return root;
         }
-        // while (root != null) {
-        if (data <= root.data) {
-            if (root.left == null) {
-                root.left = new Node(data);
+        Node current = root;
+        if (data <= current.data) {
+            current = current.left;
+            if (current == null) { // Needs a fix
+                current = new Node(data);
             } else {
-                append(data);
-                return root.left;
+                // current = current.left;
+                append(current.data);
+                return current;
             }
         } else {
-            if (root.right == null) {
-                root.right = new Node(data);
+            current = current.right;
+            if (current == null) {
+                current = new Node(data);
             } else {
-                append(data);
-                return root.right;
+                // current = current.right;
+                append(current.data);
+                return current;
             }
         }
-        return root;
+        return current;
     }
 
     // Inorever traversing through tree
