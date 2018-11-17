@@ -58,10 +58,40 @@ public class EulerAlgos {
         System.out.println("The sum of the even Fibonacci numbers is: " + sum);
 
     }
+    // Probrlem #5
+    // Title: Smallest Multiple
+    // 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+    // What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 
+    //Solution:
+    public int smallestMultiple(int start, int num1, int num2) {
+        int k = start;
+        int count = 0;
+        while(true) {
+            for(int i = num1; i <= num2; ++i) {
+                if (k % i == 0) {
+                    count++;
+                } else {
+                    count = 0;
+                    break;
+                }
+            }
+            
+            if (count == num2) {
+                System.out.println("The Smallest Multiple number is: " + k);
+                return k;
+            }
+            
+            if (k == 1000000) {
+                System.out.println("Sorry we couln't find smallest multiple below 1 Million");
+            }
+            k++;
+        }
+    }
     public static void main(String[] args) {
         EulerAlgos algos = new EulerAlgos();
         System.out.println(algos.multiples(5));
         algos.fibonacciNum(10);
+        algos.smallestMultiple(2300, 1, 20);
     }
 }
