@@ -88,6 +88,30 @@ public class EulerAlgos {
             k++;
         }
     }
+    // Problem #6
+    //The sum of the squares of the first ten natural numbers is,
+    // 12 + 22 + ... + 102 = 385
+    // The square of the sum of the first ten natural numbers is,
+    // (1 + 2 + ... + 10)2 = 552 = 3025
+    // Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
+    // Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+
+    public int sumOfSqr(int num) {
+        int sumEachSqr = 0;
+        int singleSqr = 0;
+        int result = 0;
+
+        for(int i = 1; i <= num; ++i) {
+            sumEachSqr += (i * i);
+            singleSqr += i;
+            if (i === num) {
+                singleSqr *= singleSqr;
+            }
+        }
+        result = singleSqr - sumEachSqr;
+        System.out.println("The difference between the sum of the squares is: " + result);
+        return result;
+    }
     public static void main(String[] args) {
         EulerAlgos algos = new EulerAlgos();
         System.out.println(algos.multiples(5));
