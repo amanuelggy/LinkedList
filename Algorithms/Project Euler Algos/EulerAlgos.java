@@ -95,7 +95,6 @@ public class EulerAlgos {
     // (1 + 2 + ... + 10)2 = 552 = 3025
     // Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
     // Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
-
     public int sumOfSqr(int num) {
         int sumEachSqr = 0;
         int singleSqr = 0;
@@ -112,10 +111,51 @@ public class EulerAlgos {
         System.out.println("The difference between the sum of the squares is: " + result);
         return result;
     }
+    // Problem #7
+    // By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+    // What is the 10 001st prime number?
+    public int nthPrimeNum(int num) {
+        int prime = 1;
+        int count = 12;
+        int checkCount = 0;
+        List<Integer> checkPrime = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        checkPrime.add(3);
+        checkPrime.add(5);
+        checkPrime.add(7);
+        checkPrime.add(11);
+        list.add(2);
+        list.add(3);
+        list.add(5);
+        list.add(7);
+        list.add(11);
+        System.out.println("checkers: " + checkPrime);
+        while ( list.size() != (num + 1)) {
+            if (count % 2 != 0) {
+                for(int i = 1; i < checkPrime.size(); ++i) {
+                    if (count % checkPrime.get(i) != 0) {
+                        checkCount++;
+                    } else {
+                        checkCount = 0;
+                        break;
+                    }
+                }
+                if (checkCount == (checkePrime.size())) {
+                    list.add(count);
+                    checkCount = 0;
+                }
+            }
+            count++;
+        }  
+        prime = list.get(list.size()-2);
+        System.out.println("The " + num + "th prime number is: " + prime);
+        return prime;
+    }
     public static void main(String[] args) {
         EulerAlgos algos = new EulerAlgos();
         System.out.println(algos.multiples(5));
         algos.fibonacciNum(10);
         algos.smallestMultiple(2300, 1, 20);
+        algos.nthPrimeNum(10001);
     }
 }
