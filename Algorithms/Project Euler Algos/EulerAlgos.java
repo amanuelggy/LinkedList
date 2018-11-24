@@ -56,7 +56,7 @@ public class EulerAlgos {
                 sum += list.get(x);
             }
         }
-        System.out.println("The Fibonacci numbers are: " + list);
+        // System.out.println("The Fibonacci numbers are: " + list);
         System.out.println("The sum of the even Fibonacci numbers is: " + sum);
 
     }
@@ -263,13 +263,28 @@ public class EulerAlgos {
         // System.out.println("The sum of " + n + "th Prime Numbers are: " + sum);
     }
 
+    // Another way to get PRIME Numbers
+    public void primNums(int num) {
+        for (int i = 2; i <= num; ++i) {
+            for (int j = 2; j <= i; j++) {
+                if (j == i) {
+                    System.out.println("prime: " + i);
+                }
+                if (i % j == 0) {
+                    break;
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         EulerAlgos algos = new EulerAlgos();
         System.out.println(algos.multiples(5));
-        algos.fibonacciNum(10);
-        algos.smallestMultiple(2300, 1, 20);
-        algos.nthPrimeNum(10001);
-        algos.sumOfPrimeNums(10001);
-        algos.nthPrimeNumber(2000000);
+        algos.fibonacciNum(40);
+        // algos.smallestMultiple(2300, 1, 20);
+        // algos.nthPrimeNum(10001);
+        // algos.sumOfPrimeNums(10001);
+        // algos.nthPrimeNumber(2000000);
+        // algos.primNums(100);
     }
 }

@@ -96,7 +96,7 @@ public class Algos {
         return val;
     }
 
-    // Max character: print the character that is used the morst
+    // Max character: print the character that is used the most
     public void maxChar(StringBuilder str) {
         int count = 0;
         int index = 0;
@@ -118,12 +118,24 @@ public class Algos {
         System.out.println("The character the most used in " + str + " is " + maxChar);
     }
 
+    // Given an array arr[], find the maximum j – i (or j minues i) such that a
+    // r[j] > arr[i].
+    public void maxJI(int[] arr) {
+        bubleSort(arr);
+        int maxj = arr.length - 1;
+        int i = 0;
+
+        System.out.println("Max j: " + maxj + " where arr[maxj]: " + arr[maxj]);
+        System.out.println("Max i: " + i + " where arr[i]: " + arr[i]);
+        System.out.println("Max j - i: " + (maxj - i));
+    }
+
     public static void main(String[] args) {
         Algos algo = new Algos();
         // int[] arr = { 6, 5, 4, 3, 2, 1, 0 };
         // int[] arr2 = { 0, 1, 2, 3, 4, 5, 6, 7 };
         // int[] arr3 = { 3, 2, 4, 6, 5, 7, 9, 22 };
-        // int[] arr4 = { 1, 4, 45, 6, 10, 8 };
+        int[] arr4 = { 1, 4, 45, 6, 10, 8 };
         // int sum = 22;
         // algo.largestKints(arr, 4);
         // algo.smallestKints(arr, 3);
@@ -134,6 +146,7 @@ public class Algos {
         algo.reverseString(str);
         algo.palindrome(builder);
         algo.maxChar(builder);
+        algo.maxJI(arr4);
 
     }
 }
