@@ -130,6 +130,31 @@ public class Algos {
         System.out.println("Max j - i: " + (maxj - i));
     }
 
+    // Calculating the GCD (Greatest Common Devisor) using for-loop
+    public int gcd(int num1, int num2) {
+        int gcd = 1;
+        for (int i = 1; i <= num1 && i <= num2; ++i) {
+            if (num1 % i == 0 && num2 % i == 0) {
+                gcd = i;
+            }
+        }
+        System.out.println("GCD: " + gcd);
+        return gcd;
+    }
+
+    // Calculating the GCD (Greatest Common Devisor) using while-loop
+    public int gcdUsingWhileLoop(int num1, int num2) {
+        while (num1 != num2) {
+            if (num1 > num2) {
+                num1 -= num2;
+            } else {
+                num2 -= num1;
+            }
+        }
+        System.out.println("GCD: " + num2);
+        return num2;
+    }
+
     public static void main(String[] args) {
         Algos algo = new Algos();
         // int[] arr = { 6, 5, 4, 3, 2, 1, 0 };
@@ -147,6 +172,7 @@ public class Algos {
         algo.palindrome(builder);
         algo.maxChar(builder);
         algo.maxJI(arr4);
+        algo.gcd(55, 121);
 
     }
 }
