@@ -155,6 +155,14 @@ public class Algos {
         return num2;
     }
 
+    // nth fabinacci series
+    public int fabinacci(int num) {
+        if (num < 2) {
+            return num;
+        }
+        return fabinacci(num - 1) + fabinacci(num - 2);
+    }
+
     public static void main(String[] args) {
         Algos algo = new Algos();
         // int[] arr = { 6, 5, 4, 3, 2, 1, 0 };
@@ -173,6 +181,8 @@ public class Algos {
         algo.maxChar(builder);
         algo.maxJI(arr4);
         algo.gcd(55, 121);
+        int num = 10;
+        System.out.println("The " + num + " fabinacci series is: " + algo.fabinacci(num));
 
     }
 }
