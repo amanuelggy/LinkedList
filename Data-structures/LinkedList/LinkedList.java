@@ -20,14 +20,14 @@ public class LinkedList {
             current = newNode;
             return;
         }
-        if (current.data == value) { // needs a fix
+        if (current.data == value) {
             newNode.next = current.next;
-            current = newNode;
+            current.next = newNode;
             return;
         }
         while (current.next != null) {
             if (current.next.data == value) {
-                newNode.next = current.next.next;
+                newNode.next = current.next;
                 current.next = newNode;
                 return;
             }
