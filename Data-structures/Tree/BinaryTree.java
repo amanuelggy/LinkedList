@@ -81,6 +81,25 @@ public class BinaryTree {
         }
         return current;
     }
+    // Another way FINDING OR CHECKING IF A VALUE EXIST
+    public boolean contains(int data) {
+        if (root.data == data) {
+            return true;
+        }
+        Node current = this.root;
+        while(current.data != data) {
+            if (data < current.data) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+            if (current == null) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
 
     // Find Node solution one
     public Node findNodeSolutionTwo(int data) {
@@ -121,5 +140,7 @@ public class BinaryTree {
         // tree.postOrderTraversing(tree.root);
         System.out.println("Search for tree: " + tree.findNode(10));
         tree.findNodeSolutionTwo(data);
+
+        tree.contains(12);
     }
 }

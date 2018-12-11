@@ -95,6 +95,15 @@ public class Algos {
         System.out.println("result: " + result + " str: " + str);
         return val;
     }
+    // Palindrome using String (not StringBuilder)
+    public boolean palindromeString(String str) {
+        String result = "";
+        for(int i = str.length() -1; i >= 0; --i) {
+            result += (str.charAt(i));
+        }
+        boolean check = str.equals(result);
+        return check;
+    }
 
     // Max character: print the character that is used the most
     public void maxChar(StringBuilder str) {
@@ -183,6 +192,7 @@ public class Algos {
         algo.gcd(55, 121);
         int num = 10;
         System.out.println("The " + num + " fabinacci series is: " + algo.fabinacci(num));
+        System.out.println(algo.palindromeString("loolool"));
 
     }
 }
