@@ -47,6 +47,16 @@ public class LinkedList {
             current = current.next;
         }
     }
+    // Another way adding at the end
+      // Add at the end
+      public void addAtEnd2(int data) {
+        Node newNode = new Node(data);
+        Node current = this.head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        current.next = newNode;
+    }
 
     // Delete at start
     public void deleteAtStart() {
